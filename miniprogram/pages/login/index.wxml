@@ -1,0 +1,31 @@
+<view class="bg-white auth-container">
+    <view class="logo">
+        <image class="logo-img" src="/images/favicon.png" />
+    </view>
+    <view class="logo-title text-xl text-black text-bold">腾讯云短信</view>
+    <view class="logo-text text-black text-lg">快速稳定、简单易用、触达全球的短信服务</view>
+    <view class="auth-content">
+        <view class="text-df padding">该程序将获得以下授权</view>
+        <view class="text-sm padding text-grey">- 获得您的公开信息（头像、昵称等）</view>
+    </view>
+    <view class="auth-button">
+        <button class="cu-btn round line-blue" open-type="getUserInfo" bindgetuserinfo="handleLogin">
+            立即授权
+        </button>
+    </view>
+    <view class="cu-modal {{modal_show?'show':''}}">
+        <view class="cu-dialog">
+            <view class="cu-bar bg-white justify-end">
+                <view class="content">腾讯云短信</view>
+                <view class="action" bindtap="handleModal">
+                    <text class="icon-close text-red"></text>
+                </view>
+            </view>
+            <view class="padding-xl">云开发需获取openId，若需体验请授权。</view>
+        </view>
+    </view>
+    <view class='cu-load load-modal' wx:if="{{loadModal}}">
+        <image src='/images/favicon.png' class='png' mode='aspectFit'></image>
+        <view class='gray-text'>加载中...</view>
+    </view>
+</view>

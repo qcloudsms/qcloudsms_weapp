@@ -1,0 +1,30 @@
+<!-- index.wxml -->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{false}}">
+  <view slot="backText">返回</view>
+  <view slot="content">验证码</view>
+</cu-custom>
+<view class="bg-white auth-container" style="height: {{pageHeight}}px">
+  <view class="logo">
+    <image class="logo-img" src="/images/favicon.png" />
+  </view>
+  <view class="logo-title text-xl text-black text-bold">腾讯云短信</view>
+  <form class="auth-from">
+    <view class="cu-form-group margin-top padding solid-bottom">
+      <view class="cu-avatar lg round" style="background-image:url({{avatarUrl ? avatarUrl : 'https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg'}});">
+        {{nickName}}
+      </view>
+      <input class="padding-left" placeholder="请输入手机号" type="number" maxlength="11" bindinput="hindleInputPhone" focus></input>
+    </view>
+    <view class="cu-form-group margin-top padding solid-bottom" style="border-top: none;">
+      <input placeholder="验证码" type="number" maxlength="6" bindinput="handleInputVerify" value="{{verify}}" disabled="{{!verifyStatus}}"></input>
+      <button class="cu-btn bg-gradual-blue padding-left shadow" disabled="{{!phoneStatus}}" bindtap="hindleSendVerify">
+        {{verifyButtonText}}
+      </button>
+    </view>
+  </form>
+  <view class="auth-button">
+    <button class="cu-btn round line-blue" bindtap="handleLogin" disabled="{{!loginStatus}}">
+      登录
+    </button>
+  </view>
+</view>
